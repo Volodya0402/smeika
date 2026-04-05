@@ -2,20 +2,32 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel = "stylesheet" href="style.css">
 <head>
     <title>змейка</title>
 </head>
 
 <body>
     <div id="score">score:0</div>
-    <canvas id="canvas" width="1024" height="1024"></canvas>
+    <canvas id="canvas" width="450" height="300"></canvas>
+    <div class="control">
+        <div id="Left">←</div>    
+        <div id="Right">→</div>
+        <div id="Up">↑</div>
+        <div id="Down">↓</div>
+    </div>
+
+    
     <script>
         var game = {
             tickNumber: 0,
             timer: null,
             score: 0,
             scorelabel:document.getElementById("score"),
+            Leftbutton:document.getElementById("Left"),
+            Rightbutton:document.getElementById("Right"),
+            Upbutton:document.getElementById("Up"),
+            Downbutton:document.getElementById("Down"),
             board: [
                 "###############",
                 "#             #",
@@ -166,6 +178,30 @@
             },
             startGame: function () {
                 window.addEventListener("keypress", gameControl.processInput, false)
+                 game.Leftbutton.addEventListener("click",()=>{
+                 var targetDirection = snake.facing
+                 if (snake.facing != "E")targetDirection = "W"
+                 snake.facing = targetDirection
+                 game.tick()
+                 })
+                 game.Rightbutton.addEventListener("click",()=>{
+                 var targetDirection = snake.facing
+                 if (snake.facing != "W")targetDirection = "E"
+                 snake.facing = targetDirection
+                 game.tick()
+                 })
+                 game.Upbutton.addEventListener("click",()=>{
+                 var targetDirection = snake.facing
+                 if (snake.facing != "S")targetDirection = "N"
+                 snake.facing = targetDirection
+                 game.tick()
+                 })
+                 game.Downbutton.addEventListener("click",()=>{
+                 var targetDirection = snake.facing
+                 if (snake.facing != "N")targetDirection = "S"
+                 snake.facing = targetDirection
+                 game.tick()
+                 })
                 game.tick()
             }
         }

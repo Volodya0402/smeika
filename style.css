@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+canvas{
+ background-color: rgb(29, 105, 14);
+}
+.control{
+    width: 370px;
+    height: 400px;
+    position: relative;
+    background-color: cadetblue;
+}
+.control div{
+    width: 120px;
+    height: 120px;
+    background-color: rgb(53, 88, 24);
+    font-size: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#Left{
+    position: absolute;
+    top: 120px;
+}
+#Down{
+    position: absolute;
+    top: 120px;
+    left: 120px;
+}
+#Up{
+    position: absolute;
+    left: 120px;
+    top: 0;
+}
+#Right{
+    position: absolute;
+    left: 240px;
+    top: 120px;
+}
